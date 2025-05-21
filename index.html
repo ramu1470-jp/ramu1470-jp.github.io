@@ -2,28 +2,150 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>らむのプロフィール</title>
+  <style>
+    body {
+      font-family: "Hiragino Kaku Gothic ProN", sans-serif;
+      background-image: url('images/bg_kemote.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center top;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: rgba(255, 228, 225, 0.9);
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    header img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid #ffb6c1;
+    }
+    header h1 {
+      font-size: 2rem;
+      margin: 1rem 0 0.5rem;
+    }
+    .social-links img {
+      width: 120px;
+      height: 120px;
+      margin: 0 10px;
+      vertical-align: middle;
+      border-radius: 12px;
+    }
+    .click-effect {
+      position: fixed;
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.1s ease-out, opacity 0.1s ease-out;
+      z-index: 9999;
+    }
+    .click-effect.show {
+      transform: translate(-50%, -50%) scale(0.1);
+      opacity: 1;
+    }
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    section {
+      background-color: #fffaf0cc;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #d2691e;
+      border-left: 6px solid #ffa07a;
+      padding-left: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    ul {
+      padding-left: 1.2rem;
+    }
+    .sub-section {
+      margin-top: 1rem;
+      padding-left: 1rem;
+    }
+  </style>
 </head>
-<body>
-  <h1>らむのプロフィール</h1>
+<body onclick="showClickEffect(event)">
+  <header>
+    <img src="images/icon.png" alt="らむのアイコン">
+    <h1>らむのプロフィール</h1>
+    <div class="social-links">
+      <a href="https://x.com/ramu1470?s=21&t=6Yq0utuZqfgwUvB9H1ZK1A" target="_blank">
+        <img src="images/x_icon.png" alt="Twitter">
+      </a>
+      <a href="https://youtube.com/@ramu1470?si=a4e2B7D5s9SD-ZQO" target="_blank">
+        <img src="images/youtube_icon.png" alt="YouTube">
+      </a>
+    </div>
+  </header>
 
-  <h2>🐾 自己紹介</h2>
-  <p>ケモナー学生。着ぐるみ活動に向けて準備中。音ゲーと創作が好き。</p>
+  <main>
+    <section>
+      <h2>📝 基本情報</h2>
+      <ul>
+        <li>名前：らむ</li>
+        <li>性別：男性</li>
+        <li>生年月日：2005年2月13日</li>
+        <li>生まれ：愛知</li>
+        <li>好きなもの：ケモノ、音ゲー、創作</li>
+      </ul>
+    </section>
 
-  <h2>🎮 好きなこと</h2>
-  <ul>
-    <li>音ゲー：Arcaea / チュウニズム / オンゲキ</li>
-    <li>ケモノ：ドラゴン / ネコ / シャチ / サメ</li>
-    <li>表現：着ぐるみ / 創作 / ぬいぐるみ</li>
-  </ul>
+    <section>
+      <h2>🖊️ コメント</h2>
+      <p>ケモノ、音ゲー、創作が好きな休学中の大学生です！現在アトあまさんからの冬竜をイメージした精霊の子をお迎え待ち。そのほかの季節竜くんも展開を考えています！（冬竜くん含め名前は未定）</p>
+      <div class="sub-section">
+        <h3>🎮 音ゲー情報</h3>
+        <ul>
+          <li>Arcaea: 13.21</li>
+          <li>チュウニズム: 17.45</li>
+          <li>オンゲキ: 21.338（元レマス）</li>
+          <li>maimai: 15791</li>
+          <li>SDVX: 19.526</li>
+          <li>TAKUMI3: 20.574</li>
+          <li>Dynamix: 15Ω（15個持ち）</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <h3>🐾 その他</h3>
+        <p>ケモナー、Voreなどの"癖"持ちで、もふもふやもちもち質感、包容力あるものが大好きです。</p>
+        <p>創作等は大学でゲームに関する、プランニング、プログラミング、サウンドクリエイト、デザインを満遍なくほんの少しだけ齧った程度です。</p>
+        <p>なので絵描けません！ストーリー考えれません！プログラミング出来ません！作曲出来ません！という状態です。</p>
+      </div>
+    </section>
+  </main>
 
-  <h2>💬 キャラクター紹介</h2>
-  <p><strong>冬竜くん：</strong>冬をモチーフにしたケモノドラゴン。</p>
+  <script>
+    function showClickEffect(event) {
+      const effect = document.createElement("img");
+      effect.src = "images/click.png";
+      const rotation = Math.floor(Math.random() * 360);
+      effect.className = "click-effect show";
+      effect.style.left = `${event.clientX}px`;
+      effect.style.top = `${event.clientY}px`;
+      effect.style.transform = `translate(-50%, -50%) scale(0.1) rotate(${rotation}deg)`;
+      effect.style.opacity = 1;
+      document.body.appendChild(effect);
 
-  <h2>🔗 SNSリンク</h2>
-  <ul>
-    <li><a href="https://x.com/ramu1470?s=21&t=6Yq0utuZqfgwUvB9H1ZK1A" target="_blank">Twitter</a></li>
-    <li><a href="#">Pixiv（まだ準備中）</a></li>
-  </ul>
+      setTimeout(() => {
+        effect.style.opacity = 0;
+      }, 100);
+      setTimeout(() => {
+        effect.remove();
+      }, 2000);
+    }
+  </script>
 </body>
 </html>
